@@ -3,7 +3,7 @@
 TP Integrador de Aprendizaje Automático · Instituto 57
 
 **Integrantes:** Enzo Mellado, Gladys González y Lucas Pardo  
-**Curso:** 2do Año - Ciencia de Datos e IA · **Grupo:** 2
+**Curso:** [completar] · **Grupo:** [completar número y nombre]
 
 ## Qué hace el proyecto
 Sobre datos horarios de demanda eléctrica del Gran Buenos Aires (CAMMESA, 2012–2018) se resuelven dos tareas relacionadas:
