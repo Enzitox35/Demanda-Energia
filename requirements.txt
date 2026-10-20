@@ -1,0 +1,8 @@
+# Versiones con las que se ejecutó el notebook (Python 3.12)
+numpy==2.4.4
+pandas==3.0.2
+scikit-learn==1.8.0
+matplotlib==3.10.8
+joblib==1.5.3
+# Entrega 4: agregar Flask con la versión instalada (pip freeze | grep -i flask)
+# Los Pipelines guardados con joblib se cargan con la misma versión de scikit-learn con la que se entrenaron.
