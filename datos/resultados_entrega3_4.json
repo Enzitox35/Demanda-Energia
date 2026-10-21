@@ -1,0 +1,1053 @@
+{
+  "comparacion_variables_valid": {
+    "Base con EMAE (11)": {
+      "Árbol: MAE valid (MW)": 449.3085469105145,
+      "Árbol: prof.": 8.0,
+      "KNN: MAE valid (MW)": 545.3259741248097,
+      "KNN: k": 30.0
+    },
+    "Base sin EMAE (10)": {
+      "Árbol: MAE valid (MW)": 351.3633585614394,
+      "Árbol: prof.": 12.0,
+      "KNN: MAE valid (MW)": 417.4047089041096,
+      "KNN: k": 20.0
+    },
+    "Base + derivadas, con EMAE (16)": {
+      "Árbol: MAE valid (MW)": 387.1245427119607,
+      "Árbol: prof.": 10.0,
+      "KNN: MAE valid (MW)": 402.1369558599696,
+      "KNN: k": 30.0
+    },
+    "Base + derivadas, sin EMAE (15)": {
+      "Árbol: MAE valid (MW)": 330.0212571135952,
+      "Árbol: prof.": 12.0,
+      "KNN: MAE valid (MW)": 342.18249429223744,
+      "KNN: k": 20.0
+    }
+  },
+  "regresion_arbol_valid": {
+    "2": {
+      "MAE train": 708.061893397784,
+      "MAE valid": 717.6934762959881,
+      "RMSE valid": 912.3537596876706,
+      "R2 valid": 0.38646422974105477
+    },
+    "3": {
+      "MAE train": 631.2226455507806,
+      "MAE valid": 642.2247429832327,
+      "RMSE valid": 819.3153170557157,
+      "R2 valid": 0.505216163275289
+    },
+    "4": {
+      "MAE train": 550.6068759865648,
+      "MAE valid": 558.4529746550329,
+      "RMSE valid": 725.5174274817758,
+      "R2 valid": 0.6120202545089732
+    },
+    "5": {
+      "MAE train": 490.75034552499545,
+      "MAE valid": 492.83488022642524,
+      "RMSE valid": 639.0524858260698,
+      "R2 valid": 0.6989861954280707
+    },
+    "6": {
+      "MAE train": 439.8248263446149,
+      "MAE valid": 448.4680405208215,
+      "RMSE valid": 580.4946149479289,
+      "R2 valid": 0.7516239326472587
+    },
+    "8": {
+      "MAE train": 359.3844315736979,
+      "MAE valid": 373.0707070076962,
+      "RMSE valid": 491.11203578187946,
+      "R2 valid": 0.8222234347743537
+    },
+    "10": {
+      "MAE train": 298.5495053879712,
+      "MAE valid": 330.9715103948105,
+      "RMSE valid": 446.60036458130213,
+      "R2 valid": 0.85298843448211
+    },
+    "12": {
+      "MAE train": 242.74016468333082,
+      "MAE valid": 330.0212571135952,
+      "RMSE valid": 449.4578595741762,
+      "R2 valid": 0.8511011600161703
+    },
+    "15": {
+      "MAE train": 149.92999261402556,
+      "MAE valid": 354.2065329071714,
+      "RMSE valid": 487.17914023680356,
+      "R2 valid": 0.825059354308876
+    },
+    "20": {
+      "MAE train": 38.5736893237743,
+      "MAE valid": 388.5038761872718,
+      "RMSE valid": 523.9591161084619,
+      "R2 valid": 0.7976476942061059
+    },
+    "30": {
+      "MAE train": 0.40489908000522,
+      "MAE valid": 397.1588669275208,
+      "RMSE valid": 530.2950422062851,
+      "R2 valid": 0.7927242527116802
+    }
+  },
+  "regresion_knn_valid": {
+    "1": {
+      "MAE train": 0.0,
+      "MAE valid": 440.47477168949774,
+      "RMSE valid": 591.2761555510992,
+      "R2 valid": 0.7423120640457336
+    },
+    "3": {
+      "MAE train": 123.5713601532567,
+      "MAE valid": 386.41567732115675,
+      "RMSE valid": 522.691514985317,
+      "R2 valid": 0.7986256015572151
+    },
+    "5": {
+      "MAE train": 184.44770571063674,
+      "MAE valid": 363.13253424657535,
+      "RMSE valid": 491.7030131832791,
+      "R2 valid": 0.8217953241283775
+    },
+    "10": {
+      "MAE train": 241.7070767195767,
+      "MAE valid": 344.7777054794521,
+      "RMSE valid": 467.3393106851208,
+      "R2 valid": 0.8390177536904351
+    },
+    "15": {
+      "MAE train": 266.0694550872712,
+      "MAE valid": 341.4796347031964,
+      "RMSE valid": 460.60904758966814,
+      "R2 valid": 0.8436210529089092
+    },
+    "20": {
+      "MAE train": 281.0708766648422,
+      "MAE valid": 342.1833961187214,
+      "RMSE valid": 459.4505964750865,
+      "R2 valid": 0.8444066629932411
+    },
+    "30": {
+      "MAE train": 298.95446162500764,
+      "MAE valid": 344.909802130898,
+      "RMSE valid": 462.235806435021,
+      "R2 valid": 0.84251451772493
+    },
+    "50": {
+      "MAE train": 319.0757060755336,
+      "MAE valid": 350.753901826484,
+      "RMSE valid": 470.58152375287733,
+      "R2 valid": 0.8367763447966292
+    },
+    "75": {
+      "MAE train": 333.8762966003771,
+      "MAE valid": 358.81034703196343,
+      "RMSE valid": 482.42053211473603,
+      "R2 valid": 0.8284601908426809
+    },
+    "100": {
+      "MAE train": 344.5246499270206,
+      "MAE valid": 365.54987557077624,
+      "RMSE valid": 492.85561562265644,
+      "R2 valid": 0.8209588847453958
+    }
+  },
+  "regresion_comparacion": {
+    "DummyRegressor (media)": {
+      "MAE valid": 930.6706388986778,
+      "RMSE valid": 1165.7305743434708,
+      "R2 valid": -0.001635550028762589,
+      "MAE test": 1019.4669233025005,
+      "RMSE test": 1269.8440613128962,
+      "R2 test": -0.001050918023890679
+    },
+    "Referencia estacional": {
+      "MAE valid": 492.08855357815884,
+      "RMSE valid": 667.8469894895484,
+      "R2 valid": 0.6712488345881495,
+      "MAE test": 611.3182753642831,
+      "RMSE test": 757.0471779255012,
+      "R2 test": 0.6442038261463552
+    },
+    "DecisionTreeRegressor (prof. 12)": {
+      "MAE valid": 330.0212571135952,
+      "RMSE valid": 449.4578595741762,
+      "R2 valid": 0.8511011600161703,
+      "MAE test": 412.9274566194184,
+      "RMSE test": 530.2831492830607,
+      "R2 test": 0.8254294269926556
+    },
+    "KNeighborsRegressor (k=15, escalado)": {
+      "MAE valid": 341.4796347031964,
+      "RMSE valid": 460.60904758966814,
+      "R2 valid": 0.8436210529089092,
+      "MAE test": 413.2332191780822,
+      "RMSE test": 513.6038821929338,
+      "R2 test": 0.836238435265499
+    }
+  },
+  "regresor_elegido": "DecisionTreeRegressor (prof. 12)",
+  "sesgo_test_MW": 16.018932079522525,
+  "mae_test_en_picos_MW": 562.0411692977858,
+  "mae_test_por_hora": {
+    "0": 474.3379336337382,
+    "1": 459.08651079027857,
+    "2": 367.3947674286303,
+    "3": 350.37576291510504,
+    "4": 359.7582980548737,
+    "5": 346.11172793811176,
+    "6": 351.4233969243689,
+    "7": 372.994643192401,
+    "8": 357.72915007362906,
+    "9": 389.5012589846882,
+    "10": 401.23007690905985,
+    "11": 381.1793985490648,
+    "12": 400.0537155208152,
+    "13": 419.308684381518,
+    "14": 423.7150704228765,
+    "15": 468.8851625385566,
+    "16": 505.79205512345874,
+    "17": 453.79912111151793,
+    "18": 449.164604472608,
+    "19": 407.41499542114843,
+    "20": 420.20045070335465,
+    "21": 407.06475236835706,
+    "22": 464.5859753307173,
+    "23": 479.1514460771653
+  },
+  "mae_test_por_mes": {
+    "1": 462.5576560205475,
+    "2": 474.3289476045949,
+    "3": 364.71287626288813,
+    "4": 298.7219272103709,
+    "5": 285.73761544875487,
+    "6": 458.25935547130575,
+    "7": 558.8642667974013,
+    "8": 384.94624003901487,
+    "9": 356.1719939502163,
+    "10": 392.54571670012285,
+    "11": 429.2834492285057,
+    "12": 491.416575742468
+  },
+  "mae_por_cercania_umbral": {
+    "a menos de 300 MW del umbral": {
+      "horas": 712,
+      "MAE": 479.81226623806583
+    },
+    "entre 300 y 800 MW": {
+      "horas": 1195,
+      "MAE": 507.1012422616983
+    },
+    "a más de 800 MW": {
+      "horas": 6853,
+      "MAE": 389.55671996525217
+    }
+  },
+  "peores_errores_regresion_test": [
+    {
+      "Fecha y hora": "2018-09-22 15:00:00",
+      "Real (MW)": 4799.0,
+      "Predicho (MW)": 7953.0,
+      "Error (MW)": -3154.0,
+      "Temp (°C)": 30.2,
+      "Hora": 15.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-09-22 18:00:00",
+      "Real (MW)": 5302.0,
+      "Predicho (MW)": 7953.0,
+      "Error (MW)": -2651.0,
+      "Temp (°C)": 29.4,
+      "Hora": 18.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-03-23 16:00:00",
+      "Real (MW)": 6235.0,
+      "Predicho (MW)": 8632.0,
+      "Error (MW)": -2397.0,
+      "Temp (°C)": 30.0,
+      "Hora": 16.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-03-23 15:00:00",
+      "Real (MW)": 6237.0,
+      "Predicho (MW)": 8632.0,
+      "Error (MW)": -2395.0,
+      "Temp (°C)": 29.6,
+      "Hora": 15.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-02-17 18:00:00",
+      "Real (MW)": 7181.0,
+      "Predicho (MW)": 4909.875,
+      "Error (MW)": 2271.125,
+      "Temp (°C)": 30.8,
+      "Hora": 18.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-12-25 21:00:00",
+      "Real (MW)": 5944.0,
+      "Predicho (MW)": 8206.36,
+      "Error (MW)": -2262.3600000000006,
+      "Temp (°C)": 28.0,
+      "Hora": 21.0,
+      "Feriado": 1.0
+    },
+    {
+      "Fecha y hora": "2018-03-13 13:00:00",
+      "Real (MW)": 6376.0,
+      "Predicho (MW)": 8632.0,
+      "Error (MW)": -2256.0,
+      "Temp (°C)": 29.1,
+      "Hora": 13.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-07-29 18:00:00",
+      "Real (MW)": 6673.0,
+      "Predicho (MW)": 4465.0,
+      "Error (MW)": 2208.0,
+      "Temp (°C)": 11.4,
+      "Hora": 18.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-03-13 14:00:00",
+      "Real (MW)": 6450.0,
+      "Predicho (MW)": 8632.0,
+      "Error (MW)": -2182.0,
+      "Temp (°C)": 29.2,
+      "Hora": 14.0,
+      "Feriado": 0.0
+    },
+    {
+      "Fecha y hora": "2018-07-29 13:00:00",
+      "Real (MW)": 6578.0,
+      "Predicho (MW)": 4465.0,
+      "Error (MW)": 2113.0,
+      "Temp (°C)": 10.8,
+      "Hora": 13.0,
+      "Feriado": 0.0
+    }
+  ],
+  "clasificacion_arbol_valid": {
+    "sin pesos|2": {
+      "Accuracy": 0.9047945205479452,
+      "Precision": 0.6871165644171779,
+      "Recall": 0.23430962343096234,
+      "F1": 0.3494539781591264,
+      "FP": 102.0,
+      "FN": 732.0,
+      "Costo valid": 3762.0
+    },
+    "sin pesos|3": {
+      "Accuracy": 0.9171232876712329,
+      "Precision": 0.6916666666666667,
+      "Recall": 0.4341004184100418,
+      "F1": 0.5334190231362468,
+      "FP": 185.0,
+      "FN": 541.0,
+      "Costo valid": 2890.0
+    },
+    "sin pesos|4": {
+      "Accuracy": 0.9243150684931507,
+      "Precision": 0.8020618556701031,
+      "Recall": 0.40690376569037656,
+      "F1": 0.5399028452463567,
+      "FP": 96.0,
+      "FN": 567.0,
+      "Costo valid": 2931.0
+    },
+    "sin pesos|5": {
+      "Accuracy": 0.9361872146118722,
+      "Precision": 0.8324958123953099,
+      "Recall": 0.5198744769874477,
+      "F1": 0.6400515132002575,
+      "FP": 100.0,
+      "FN": 459.0,
+      "Costo valid": 2395.0
+    },
+    "sin pesos|6": {
+      "Accuracy": 0.9327625570776256,
+      "Precision": 0.8481973434535104,
+      "Recall": 0.4675732217573222,
+      "F1": 0.602832097100472,
+      "FP": 80.0,
+      "FN": 509.0,
+      "Costo valid": 2625.0
+    },
+    "sin pesos|8": {
+      "Accuracy": 0.9463470319634704,
+      "Precision": 0.8292682926829268,
+      "Recall": 0.6401673640167364,
+      "F1": 0.7225501770956316,
+      "FP": 126.0,
+      "FN": 344.0,
+      "Costo valid": 1846.0
+    },
+    "sin pesos|10": {
+      "Accuracy": 0.9454337899543379,
+      "Precision": 0.79875,
+      "Recall": 0.6684100418410042,
+      "F1": 0.7277904328018223,
+      "FP": 161.0,
+      "FN": 317.0,
+      "Costo valid": 1746.0
+    },
+    "sin pesos|12": {
+      "Accuracy": 0.9407534246575342,
+      "Precision": 0.7833981841763943,
+      "Recall": 0.6317991631799164,
+      "F1": 0.6994788650839606,
+      "FP": 167.0,
+      "FN": 352.0,
+      "Costo valid": 1927.0
+    },
+    "sin pesos|15": {
+      "Accuracy": 0.933675799086758,
+      "Precision": 0.745740498034076,
+      "Recall": 0.5951882845188284,
+      "F1": 0.6620127981384526,
+      "FP": 194.0,
+      "FN": 387.0,
+      "Costo valid": 2129.0
+    },
+    "sin pesos|20": {
+      "Accuracy": 0.9311643835616439,
+      "Precision": 0.7242693773824651,
+      "Recall": 0.5962343096234309,
+      "F1": 0.6540447504302926,
+      "FP": 217.0,
+      "FN": 386.0,
+      "Costo valid": 2147.0
+    },
+    "pesos 1:5|2": {
+      "Accuracy": 0.8489726027397261,
+      "Precision": 0.38509705698184094,
+      "Recall": 0.643305439330544,
+      "F1": 0.481786133960047,
+      "FP": 982.0,
+      "FN": 341.0,
+      "Costo valid": 2687.0
+    },
+    "pesos 1:5|3": {
+      "Accuracy": 0.860730593607306,
+      "Precision": 0.42575928008998876,
+      "Recall": 0.7918410041841004,
+      "F1": 0.5537673738112655,
+      "FP": 1021.0,
+      "FN": 199.0,
+      "Costo valid": 2016.0
+    },
+    "pesos 1:5|4": {
+      "Accuracy": 0.8743150684931507,
+      "Precision": 0.4585002862049227,
+      "Recall": 0.8378661087866108,
+      "F1": 0.5926748057713651,
+      "FP": 946.0,
+      "FN": 155.0,
+      "Costo valid": 1721.0
+    },
+    "pesos 1:5|5": {
+      "Accuracy": 0.8775114155251141,
+      "Precision": 0.4666666666666667,
+      "Recall": 0.856694560669456,
+      "F1": 0.6042050903725562,
+      "FP": 936.0,
+      "FN": 137.0,
+      "Costo valid": 1621.0
+    },
+    "pesos 1:5|6": {
+      "Accuracy": 0.9257990867579908,
+      "Precision": 0.6157337367624811,
+      "Recall": 0.8514644351464435,
+      "F1": 0.7146619841966637,
+      "FP": 508.0,
+      "FN": 142.0,
+      "Costo valid": 1218.0
+    },
+    "pesos 1:5|8": {
+      "Accuracy": 0.9337899543378996,
+      "Precision": 0.6482649842271293,
+      "Recall": 0.8598326359832636,
+      "F1": 0.7392086330935251,
+      "FP": 446.0,
+      "FN": 134.0,
+      "Costo valid": 1116.0
+    },
+    "pesos 1:5|10": {
+      "Accuracy": 0.9371004566210046,
+      "Precision": 0.6669414674361088,
+      "Recall": 0.8462343096234309,
+      "F1": 0.7459658828953435,
+      "FP": 404.0,
+      "FN": 147.0,
+      "Costo valid": 1139.0
+    },
+    "pesos 1:5|12": {
+      "Accuracy": 0.9393835616438356,
+      "Precision": 0.6895628902765388,
+      "Recall": 0.8085774058577406,
+      "F1": 0.7443428021184401,
+      "FP": 348.0,
+      "FN": 183.0,
+      "Costo valid": 1263.0
+    },
+    "pesos 1:5|15": {
+      "Accuracy": 0.9410958904109589,
+      "Precision": 0.7315789473684211,
+      "Recall": 0.7269874476987448,
+      "F1": 0.7292759706190975,
+      "FP": 255.0,
+      "FN": 261.0,
+      "Costo valid": 1560.0
+    },
+    "pesos 1:5|20": {
+      "Accuracy": 0.9341324200913242,
+      "Precision": 0.7490144546649146,
+      "Recall": 0.5962343096234309,
+      "F1": 0.663948747815958,
+      "FP": 191.0,
+      "FN": 386.0,
+      "Costo valid": 2121.0
+    }
+  },
+  "clasificacion_knn_valid": {
+    "1": {
+      "Accuracy": 0.9269406392694064,
+      "Precision": 0.698992443324937,
+      "Recall": 0.5805439330543933,
+      "F1": 0.6342857142857142,
+      "FP": 239.0,
+      "FN": 401.0,
+      "Costo valid": 2244.0
+    },
+    "3": {
+      "Accuracy": 0.933675799086758,
+      "Precision": 0.7544097693351425,
+      "Recall": 0.5815899581589958,
+      "F1": 0.6568222090962788,
+      "FP": 181.0,
+      "FN": 400.0,
+      "Costo valid": 2181.0
+    },
+    "5": {
+      "Accuracy": 0.9368721461187215,
+      "Precision": 0.782608695652174,
+      "Recall": 0.5836820083682008,
+      "F1": 0.6686638705811864,
+      "FP": 155.0,
+      "FN": 398.0,
+      "Costo valid": 2145.0
+    },
+    "10": {
+      "Accuracy": 0.9405251141552512,
+      "Precision": 0.864321608040201,
+      "Recall": 0.5397489539748954,
+      "F1": 0.6645202833226014,
+      "FP": 81.0,
+      "FN": 440.0,
+      "Costo valid": 2281.0
+    },
+    "15": {
+      "Accuracy": 0.9437214611872146,
+      "Precision": 0.8534351145038168,
+      "Recall": 0.5847280334728033,
+      "F1": 0.6939788950962136,
+      "FP": 96.0,
+      "FN": 397.0,
+      "Costo valid": 2081.0
+    },
+    "20": {
+      "Accuracy": 0.9416666666666667,
+      "Precision": 0.8665568369028006,
+      "Recall": 0.5502092050209205,
+      "F1": 0.673064619321817,
+      "FP": 81.0,
+      "FN": 430.0,
+      "Costo valid": 2231.0
+    },
+    "30": {
+      "Accuracy": 0.9422374429223744,
+      "Precision": 0.8712871287128713,
+      "Recall": 0.5523012552301255,
+      "F1": 0.676056338028169,
+      "FP": 78.0,
+      "FN": 428.0,
+      "Costo valid": 2218.0
+    },
+    "50": {
+      "Accuracy": 0.9437214611872146,
+      "Precision": 0.8877721943048577,
+      "Recall": 0.5543933054393305,
+      "F1": 0.6825499034127496,
+      "FP": 67.0,
+      "FN": 426.0,
+      "Costo valid": 2197.0
+    },
+    "75": {
+      "Accuracy": 0.9417808219178082,
+      "Precision": 0.8766891891891891,
+      "Recall": 0.5428870292887029,
+      "F1": 0.6705426356589147,
+      "FP": 73.0,
+      "FN": 437.0,
+      "Costo valid": 2258.0
+    },
+    "100": {
+      "Accuracy": 0.9406392694063926,
+      "Precision": 0.8824561403508772,
+      "Recall": 0.5261506276150628,
+      "F1": 0.6592398427260813,
+      "FP": 67.0,
+      "FN": 453.0,
+      "Costo valid": 2332.0
+    }
+  },
+  "clasificacion_gnb_valid": {
+    "1e-09": {
+      "Accuracy": 0.8878995433789955,
+      "Precision": 0.48985959438377535,
+      "Recall": 0.6569037656903766,
+      "F1": 0.5612153708668454,
+      "FP": 654.0,
+      "FN": 328.0,
+      "Costo valid": 2294.0
+    },
+    "1e-06": {
+      "Accuracy": 0.8992009132420091,
+      "Precision": 0.5386243386243387,
+      "Recall": 0.5324267782426778,
+      "F1": 0.5355076275644398,
+      "FP": 436.0,
+      "FN": 447.0,
+      "Costo valid": 2671.0
+    },
+    "0.0001": {
+      "Accuracy": 0.9028538812785388,
+      "Precision": 0.6043737574552683,
+      "Recall": 0.3179916317991632,
+      "F1": 0.4167237834132968,
+      "FP": 199.0,
+      "FN": 652.0,
+      "Costo valid": 3459.0
+    },
+    "0.01": {
+      "Accuracy": 0.8908675799086758,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1": 0.0,
+      "FP": 0.0,
+      "FN": 956.0,
+      "Costo valid": 4780.0
+    },
+    "0.1": {
+      "Accuracy": 0.8908675799086758,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1": 0.0,
+      "FP": 0.0,
+      "FN": 956.0,
+      "Costo valid": 4780.0
+    },
+    "1.0": {
+      "Accuracy": 0.8908675799086758,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1": 0.0,
+      "FP": 0.0,
+      "FN": 956.0,
+      "Costo valid": 4780.0
+    }
+  },
+  "clasificacion_comparacion": {
+    "DummyClassifier (most_frequent)": {
+      "Accuracy valid": 0.8908675799086758,
+      "Precision valid": 0.0,
+      "Recall valid": 0.0,
+      "F1 valid": 0.0,
+      "FP valid": 0.0,
+      "FN valid": 956.0,
+      "Costo valid": 4780.0,
+      "Accuracy test": 0.8605022831050229,
+      "Precision test": 0.0,
+      "Recall test": 0.0,
+      "F1 test": 0.0,
+      "FP test": 0.0,
+      "FN test": 1222.0,
+      "Costo test": 6110.0
+    },
+    "DummyClassifier (stratified)": {
+      "Accuracy valid": 0.8133561643835616,
+      "Precision valid": 0.10011778563015312,
+      "Recall valid": 0.08891213389121339,
+      "F1 valid": 0.09418282548476455,
+      "FP valid": 764.0,
+      "FN valid": 871.0,
+      "Costo valid": 5119.0,
+      "Accuracy test": 0.7921232876712329,
+      "Precision test": 0.14723203769140164,
+      "Recall test": 0.10229132569558101,
+      "F1 test": 0.12071463061323032,
+      "FP test": 724.0,
+      "FN test": 1097.0,
+      "Costo test": 6209.0
+    },
+    "Referencia estacional + umbral": {
+      "Accuracy valid": 0.9041095890410958,
+      "Precision valid": 0.6823899371069182,
+      "Recall valid": 0.22698744769874477,
+      "F1 valid": 0.34065934065934067,
+      "FP valid": 101.0,
+      "FN valid": 739.0,
+      "Costo valid": 3796.0,
+      "Accuracy test": 0.890296803652968,
+      "Precision test": 0.9169329073482428,
+      "Recall test": 0.234860883797054,
+      "F1 test": 0.3739413680781759,
+      "FP test": 26.0,
+      "FN test": 935.0,
+      "Costo test": 4701.0
+    },
+    "DecisionTreeClassifier (prof. 8, pesos 1:5)": {
+      "Accuracy valid": 0.9337899543378996,
+      "Precision valid": 0.6482649842271293,
+      "Recall valid": 0.8598326359832636,
+      "F1 valid": 0.7392086330935251,
+      "FP valid": 446.0,
+      "FN valid": 134.0,
+      "Costo valid": 1116.0,
+      "Accuracy test": 0.9224885844748858,
+      "Precision test": 0.6721623335447051,
+      "Recall test": 0.867430441898527,
+      "F1 test": 0.7574133619149697,
+      "FP test": 517.0,
+      "FN test": 162.0,
+      "Costo test": 1327.0
+    },
+    "KNeighborsClassifier (k=15, escalado)": {
+      "Accuracy valid": 0.9437214611872146,
+      "Precision valid": 0.8534351145038168,
+      "Recall valid": 0.5847280334728033,
+      "F1 valid": 0.6939788950962136,
+      "FP valid": 96.0,
+      "FN valid": 397.0,
+      "Costo valid": 2081.0,
+      "Accuracy test": 0.9234018264840183,
+      "Precision test": 0.8268090154211151,
+      "Recall test": 0.5703764320785597,
+      "F1 test": 0.6750605326876513,
+      "FP test": 146.0,
+      "FN test": 525.0,
+      "Costo test": 2771.0
+    },
+    "GaussianNB (var_smoothing=1e-09)": {
+      "Accuracy valid": 0.8878995433789955,
+      "Precision valid": 0.48985959438377535,
+      "Recall valid": 0.6569037656903766,
+      "F1 valid": 0.5612153708668454,
+      "FP valid": 654.0,
+      "FN valid": 328.0,
+      "Costo valid": 2294.0,
+      "Accuracy test": 0.8696347031963471,
+      "Precision test": 0.5268456375838926,
+      "Recall test": 0.6423895253682488,
+      "F1 test": 0.5789085545722714,
+      "FP test": 705.0,
+      "FN test": 437.0,
+      "Costo test": 2890.0
+    }
+  },
+  "clasificador_elegido": "DecisionTreeClassifier (prof. 8, pesos 1:5)",
+  "tabla_integradora_test": {
+    "Clasificador directo": {
+      "Accuracy": 0.9224885844748858,
+      "Precision": 0.6721623335447051,
+      "Recall": 0.867430441898527,
+      "F1": 0.7574133619149697,
+      "FP": 517.0,
+      "FN": 162.0,
+      "Costo (FN=5×FP)": 1327.0
+    },
+    "Regresión + umbral": {
+      "Accuracy": 0.9285388127853881,
+      "Precision": 0.8117154811715481,
+      "Recall": 0.6350245499181669,
+      "F1": 0.7125803489439853,
+      "FP": 180.0,
+      "FN": 446.0,
+      "Costo (FN=5×FP)": 2410.0
+    },
+    "Regresión + umbral con margen de 475 MW (variante)": {
+      "Accuracy": 0.9207762557077626,
+      "Precision": 0.6560283687943262,
+      "Recall": 0.9083469721767594,
+      "F1": 0.7618393960192176,
+      "FP": 582.0,
+      "FN": 112.0,
+      "Costo (FN=5×FP)": 1142.0
+    },
+    "Clasificador directo con corte de probabilidad 0.35 (variante)": {
+      "Accuracy": 0.9204337899543379,
+      "Precision": 0.6601586333129957,
+      "Recall": 0.8854337152209493,
+      "F1": 0.7563788885005243,
+      "FP": 557.0,
+      "FN": 140.0,
+      "Costo (FN=5×FP)": 1257.0
+    }
+  },
+  "margen_MW": 475.0,
+  "corte_probabilidad": 0.35,
+  "sensibilidad_costos_test": {
+    "1": {
+      "Clasificador directo": 679.0,
+      "Regresión + umbral": 626.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 694.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 697.0,
+      "Menor costo": "Regresión + umbral"
+    },
+    "2": {
+      "Clasificador directo": 841.0,
+      "Regresión + umbral": 1072.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 806.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 837.0,
+      "Menor costo": "Regresión + umbral con margen de 475 MW (variante)"
+    },
+    "3": {
+      "Clasificador directo": 1003.0,
+      "Regresión + umbral": 1518.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 918.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 977.0,
+      "Menor costo": "Regresión + umbral con margen de 475 MW (variante)"
+    },
+    "5": {
+      "Clasificador directo": 1327.0,
+      "Regresión + umbral": 2410.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 1142.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 1257.0,
+      "Menor costo": "Regresión + umbral con margen de 475 MW (variante)"
+    },
+    "10": {
+      "Clasificador directo": 2137.0,
+      "Regresión + umbral": 4640.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 1702.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 1957.0,
+      "Menor costo": "Regresión + umbral con margen de 475 MW (variante)"
+    },
+    "20": {
+      "Clasificador directo": 3757.0,
+      "Regresión + umbral": 9100.0,
+      "Regresión + umbral con margen de 475 MW (variante)": 2822.0,
+      "Clasificador directo con corte de probabilidad 0.35 (variante)": 3357.0,
+      "Menor costo": "Regresión + umbral con margen de 475 MW (variante)"
+    }
+  },
+  "errores_por_cercania_umbral_test": {
+    "a menos de 300 MW del umbral": {
+      "horas": 712.0,
+      "errores_directo": 292.0,
+      "errores_reg_umbral": 313.0,
+      "% error directo": 41.01123595505618,
+      "% error reg+umbral": 43.96067415730337
+    },
+    "entre 300 y 800 MW": {
+      "horas": 1195.0,
+      "errores_directo": 228.0,
+      "errores_reg_umbral": 251.0,
+      "% error directo": 19.07949790794979,
+      "% error reg+umbral": 21.00418410041841
+    },
+    "a más de 800 MW": {
+      "horas": 6853.0,
+      "errores_directo": 159.0,
+      "errores_reg_umbral": 62.0,
+      "% error directo": 2.3201517583540054,
+      "% error reg+umbral": 0.9047132642638261
+    }
+  },
+  "buen_mae_mala_alerta": {
+    "casos": 136,
+    "errores_alerta_reg": 626,
+    "dist_media_umbral_MW": 137.63235294117646
+  },
+  "coincidencia_test": {
+    "coinciden": 8089,
+    "total": 8760,
+    "desacuerdos": 671,
+    "acierta_directo": 309,
+    "acierta_reg": 362
+  },
+  "casos_fn_reg": [
+    {
+      "Fecha y hora": "2018-01-31 17:00:00",
+      "Real (MW)": 8790.0,
+      "Predicho (MW)": 7203.890410958904,
+      "Temp (°C)": 31.2,
+      "Hora": 17.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": 1483.0
+    },
+    {
+      "Fecha y hora": "2018-02-09 00:00:00",
+      "Real (MW)": 8717.0,
+      "Predicho (MW)": 7108.303664921466,
+      "Temp (°C)": 28.3,
+      "Hora": 0.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": 1410.0
+    },
+    {
+      "Fecha y hora": "2018-01-12 17:00:00",
+      "Real (MW)": 8690.0,
+      "Predicho (MW)": 7198.9358974358975,
+      "Temp (°C)": 30.1,
+      "Hora": 17.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": 1383.0
+    },
+    {
+      "Fecha y hora": "2018-01-23 16:00:00",
+      "Real (MW)": 8591.0,
+      "Predicho (MW)": 7198.9358974358975,
+      "Temp (°C)": 29.2,
+      "Hora": 16.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": 1284.0
+    },
+    {
+      "Fecha y hora": "2018-02-02 17:00:00",
+      "Real (MW)": 8573.0,
+      "Predicho (MW)": 7118.911392405063,
+      "Temp (°C)": 28.2,
+      "Hora": 17.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": 1266.0
+    }
+  ],
+  "casos_fp_reg": [
+    {
+      "Fecha y hora": "2018-03-08 16:00:00",
+      "Real (MW)": 6837.0,
+      "Predicho (MW)": 8632.0,
+      "Temp (°C)": 29.9,
+      "Hora": 16.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": -470.0
+    },
+    {
+      "Fecha y hora": "2018-03-09 12:00:00",
+      "Real (MW)": 6931.0,
+      "Predicho (MW)": 8632.0,
+      "Temp (°C)": 29.4,
+      "Hora": 12.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": -376.0
+    },
+    {
+      "Fecha y hora": "2018-03-13 13:00:00",
+      "Real (MW)": 6376.0,
+      "Predicho (MW)": 8632.0,
+      "Temp (°C)": 29.1,
+      "Hora": 13.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": -931.0
+    },
+    {
+      "Fecha y hora": "2018-03-13 14:00:00",
+      "Real (MW)": 6450.0,
+      "Predicho (MW)": 8632.0,
+      "Temp (°C)": 29.2,
+      "Hora": 14.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": -857.0
+    },
+    {
+      "Fecha y hora": "2018-03-13 15:00:00",
+      "Real (MW)": 6527.0,
+      "Predicho (MW)": 8632.0,
+      "Temp (°C)": 30.7,
+      "Hora": 15.0,
+      "Feriado": 0.0,
+      "Real − umbral (MW)": -780.0
+    }
+  ],
+  "metadatos": {
+    "umbral_MW": 7307.0,
+    "predictores": [
+      "Temp",
+      "Hum",
+      "Pres",
+      "GHI",
+      "viento_vel",
+      "Holiday",
+      "hora",
+      "dia_semana",
+      "mes",
+      "fin_de_semana"
+    ],
+    "rangos_entrenamiento": {
+      "Temp": [
+        0.4,
+        37.9
+      ],
+      "Hum": [
+        0.15,
+        1.0
+      ],
+      "Pres": [
+        993.8,
+        1037.9
+      ],
+      "GHI": [
+        0.0,
+        1136.0
+      ],
+      "viento_vel": [
+        0.0,
+        39.5339
+      ],
+      "Holiday": [
+        0.0,
+        1.0
+      ],
+      "hora": [
+        0.0,
+        23.0
+      ],
+      "dia_semana": [
+        0.0,
+        6.0
+      ],
+      "mes": [
+        1.0,
+        12.0
+      ],
+      "fin_de_semana": [
+        0.0,
+        1.0
+      ]
+    },
+    "costo_fn_sobre_fp": 5.0,
+    "margen_precaucion_MW": 475.0,
+    "regresor": "DecisionTreeRegressor (prof. 12)",
+    "clasificador": "DecisionTreeClassifier (prof. 8, pesos 1:5)",
+    "mae_test_MW": 412.9274566194184,
+    "semilla": 42,
+    "versiones": {
+      "python": "3.12.3",
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

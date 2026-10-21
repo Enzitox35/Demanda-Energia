@@ -1,0 +1,350 @@
+{
+  "calidad": {
+    "filas": 61368,
+    "duplicados_fila_completa": 0,
+    "duplicados_datetime": 0,
+    "horas_que_faltan_en_la_serie": 0,
+    "nulos": {
+      "Temp": 12,
+      "vy": 39,
+      "vx": 39,
+      "GHI": 335,
+      "Hum": 12,
+      "Pres": 12,
+      "viento_vel": 39
+    },
+    "filas_con_falla_sensor": 12,
+    "incoherencias_calendario": 0,
+    "rachas_nulos_Temp": {
+      "1": 12
+    },
+    "rachas_nulos_vx": {
+      "1": 12,
+      "2": 1,
+      "3": 1,
+      "4": 3,
+      "5": 2
+    },
+    "rachas_nulos_GHI": {
+      "23": 1,
+      "24": 10,
+      "72": 1
+    },
+    "viento_vel_igual_a_raiz_vx_vy": true,
+    "EMAE_valores_distintos_por_mes": 1,
+    "valores_imposibles": {
+      "Hum fuera de [0, 1]": 0,
+      "GHI negativa": 0,
+      "DemGBA <= 0": 0,
+      "viento_vel negativa": 0,
+      "Temp fuera de [-10, 50] °C": 0,
+      "Pres fuera de [900, 1100] hPa": 0
+    }
+  },
+  "umbral": 7307.0,
+  "umbral_coincide": true,
+  "balance": {
+    "train": {
+      "filas": 43848,
+      "desde": "2012-01-01",
+      "hasta": "2016-12-31",
+      "positivos": 4384,
+      "pct_alta": 10.0
+    },
+    "valid": {
+      "filas": 8760,
+      "desde": "2017-01-01",
+      "hasta": "2017-12-31",
+      "positivos": 956,
+      "pct_alta": 10.9
+    },
+    "test": {
+      "filas": 8760,
+      "desde": "2018-01-01",
+      "hasta": "2018-12-31",
+      "positivos": 1222,
+      "pct_alta": 13.9
+    }
+  },
+  "balance_total_pct": 10.7,
+  "preparacion": {
+    "nulos_antes": {
+      "Temp": 12,
+      "Hum": 12,
+      "Pres": 12,
+      "vx": 39,
+      "vy": 39,
+      "GHI": 335
+    },
+    "nulos_despues": {
+      "Temp": 0,
+      "Hum": 0,
+      "Pres": 0,
+      "GHI": 0,
+      "vx": 0,
+      "vy": 0
+    },
+    "temp_confort_C": 18.0,
+    "filas": 61368,
+    "columnas": 23
+  },
+  "predictores_base": [
+    "Temp",
+    "Hum",
+    "Pres",
+    "GHI",
+    "viento_vel",
+    "Holiday",
+    "EMAE",
+    "hora",
+    "dia_semana",
+    "mes",
+    "fin_de_semana"
+  ],
+  "predictores_derivados": [
+    "temp_confort",
+    "hora_sin",
+    "hora_cos",
+    "mes_sin",
+    "mes_cos"
+  ],
+  "describe": {
+    "Temp": {
+      "min": 0.4,
+      "mean": 18.314811465258767,
+      "max": 37.9
+    },
+    "Hum": {
+      "min": 0.15,
+      "mean": 0.7125496186937819,
+      "max": 1.0
+    },
+    "Pres": {
+      "min": 993.8,
+      "mean": 1015.6692999608915,
+      "max": 1037.9
+    },
+    "GHI": {
+      "min": 0.0,
+      "mean": 194.41772679246512,
+      "max": 1136.0
+    },
+    "viento_vel": {
+      "min": 0.0,
+      "mean": 8.217418242406465,
+      "max": 39.5339
+    },
+    "Holiday": {
+      "min": 0.0,
+      "mean": 0.04732107938991005,
+      "max": 1.0
+    },
+    "EMAE": {
+      "min": 143.49,
+      "mean": 146.9325185764568,
+      "max": 151.36
+    },
+    "hora": {
+      "min": 0.0,
+      "mean": 11.5,
+      "max": 23.0
+    },
+    "dia_semana": {
+      "min": 0.0,
+      "mean": 3.0,
+      "max": 6.0
+    },
+    "mes": {
+      "min": 1.0,
+      "mean": 6.522487289792726,
+      "max": 12.0
+    },
+    "fin_de_semana": {
+      "min": 0.0,
+      "mean": 0.2858818928431756,
+      "max": 1.0
+    },
+    "temp_confort": {
+      "min": 0.0,
+      "mean": 5.240215584669534,
+      "max": 19.9
+    },
+    "hora_sin": {
+      "min": -1.0,
+      "mean": 0.0,
+      "max": 1.0
+    },
+    "hora_cos": {
+      "min": -1.0,
+      "mean": -7.236494750522464e-20,
+      "max": 1.0
+    },
+    "mes_sin": {
+      "min": -1.0,
+      "mean": -0.0030801720766523324,
+      "max": 1.0
+    },
+    "mes_cos": {
+      "min": -1.0,
+      "mean": -0.004064137661321871,
+      "max": 1.0
+    },
+    "DemGBA": {
+      "min": 2803.0,
+      "mean": 5763.932701081997,
+      "max": 9929.0
+    }
+  },
+  "alta_por_mes_train": {
+    "1": 14.9,
+    "2": 12.7,
+    "3": 5.2,
+    "4": 0.8,
+    "5": 5.2,
+    "6": 20.0,
+    "7": 25.9,
+    "8": 10.6,
+    "9": 5.5,
+    "10": 0.5,
+    "11": 1.7,
+    "12": 16.8
+  },
+  "alta_por_hora_train": {
+    "0": 10.0,
+    "1": 2.0,
+    "2": 0.4,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0,
+    "7": 0.0,
+    "8": 1.4,
+    "9": 4.1,
+    "10": 8.3,
+    "11": 11.5,
+    "12": 12.8,
+    "13": 12.3,
+    "14": 12.1,
+    "15": 12.6,
+    "16": 12.8,
+    "17": 12.0,
+    "18": 11.1,
+    "19": 17.2,
+    "20": 22.2,
+    "21": 29.1,
+    "22": 27.9,
+    "23": 20.3
+  },
+  "demanda_media_anual": {
+    "2012": 5477,
+    "2013": 5645,
+    "2014": 5646,
+    "2015": 5986,
+    "2016": 6003,
+    "2017": 5798,
+    "2018": 5792
+  },
+  "pct_alta_anual": {
+    "2012": 5.9,
+    "2013": 8.0,
+    "2014": 7.6,
+    "2015": 13.8,
+    "2016": 14.7,
+    "2017": 10.9,
+    "2018": 13.9
+  },
+  "baseline_regresion": {
+    "DummyRegressor (media)": {
+      "valid": {
+        "MAE": 930.6706388986778,
+        "RMSE": 1165.7305743434708,
+        "R2": -0.001635550028762589
+      },
+      "test": {
+        "MAE": 1019.4669233025005,
+        "RMSE": 1269.8440613128962,
+        "R2": -0.001050918023890679
+      }
+    },
+    "Referencia estacional (mes × hora × tipo de día)": {
+      "valid": {
+        "MAE": 492.08855357815884,
+        "RMSE": 667.8469894895484,
+        "R2": 0.6712488345881495
+      },
+      "test": {
+        "MAE": 611.3182753642831,
+        "RMSE": 757.0471779255012,
+        "R2": 0.6442038261463552
+      }
+    }
+  },
+  "baseline_clasificacion": {
+    "DummyClassifier (most_frequent)": {
+      "valid": {
+        "accuracy": 0.8908675799086758,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tn": 7804,
+        "fp": 0,
+        "fn": 956,
+        "tp": 0
+      },
+      "test": {
+        "accuracy": 0.8605022831050229,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tn": 7538,
+        "fp": 0,
+        "fn": 1222,
+        "tp": 0
+      }
+    },
+    "DummyClassifier (stratified)": {
+      "valid": {
+        "accuracy": 0.8133561643835616,
+        "precision": 0.10011778563015312,
+        "recall": 0.08891213389121339,
+        "f1": 0.09418282548476455,
+        "tn": 7040,
+        "fp": 764,
+        "fn": 871,
+        "tp": 85
+      },
+      "test": {
+        "accuracy": 0.7921232876712329,
+        "precision": 0.14723203769140164,
+        "recall": 0.10229132569558101,
+        "f1": 0.12071463061323032,
+        "tn": 6814,
+        "fp": 724,
+        "fn": 1097,
+        "tp": 125
+      }
+    },
+    "Referencia estacional + umbral": {
+      "valid": {
+        "accuracy": 0.9041095890410958,
+        "precision": 0.6823899371069182,
+        "recall": 0.22698744769874477,
+        "f1": 0.34065934065934067,
+        "tn": 7703,
+        "fp": 101,
+        "fn": 739,
+        "tp": 217
+      },
+      "test": {
+        "accuracy": 0.890296803652968,
+        "precision": 0.9169329073482428,
+        "recall": 0.234860883797054,
+        "f1": 0.3739413680781759,
+        "tn": 7512,
+        "fp": 26,
+        "fn": 935,
+        "tp": 287
+      }
+    }
+  }
+}

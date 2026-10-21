@@ -1,0 +1,6 @@
+# Para ejecutar notebooks/entrenamiento.ipynb (Python 3.12). Incluye las dependencias de la aplicación.
+-r requirements.txt
+pandas==3.0.2
+matplotlib==3.10.8
+jupyterlab
+ipykernel

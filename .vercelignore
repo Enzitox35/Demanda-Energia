@@ -1,0 +1,5 @@
+datos/
+notebooks/
+informe/
+*.ipynb
+requirements-notebook.txt

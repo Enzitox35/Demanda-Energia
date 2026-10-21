@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demanda eléctrica del GBA · Alerta de alta demanda</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+<header>
+  <h1>Demanda eléctrica del GBA</h1>
+  <p>Estimación de la demanda horaria y alerta de alta demanda para decidir si activar generación y reserva adicional.</p>
+</header>
+
+<main>
+  <section class="tarjeta">
+    <h2>Ingresá el caso</h2>
+    <p class="ayuda">Completá la fecha y hora a cubrir y el pronóstico del tiempo para esa hora. Podés usar el ejemplo precargado (una tarde calurosa de verano).</p>
+
+    {% if errores %}
+    <div class="error" role="alert">
+      <strong>Revisá los datos ingresados:</strong>
+      <ul>{% for msg in errores.values() %}<li>{{ msg }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    <form method="post" action="/predecir" novalidate>
+      <div class="grilla">
+        <label>Fecha
+          <input type="date" name="fecha" value="{{ valores.get('fecha', '') }}" min="{{ fecha_min }}" max="{{ fecha_max }}" required>
+          <small>Se calculan solos el día de la semana, el mes y si es fin de semana.</small>
+        </label>
+        <label>Hora del día (0 a 23)
+          <input type="number" name="hora" value="{{ valores.get('hora', '') }}" min="0" max="23" step="1" required>
+          <small>Hora de inicio. Ejemplo: 17 = de 17 a 18 h.</small>
+        </label>
+        {% for nombre, etiqueta, mn, mx, paso, ayuda in campos %}
+        <label>{{ etiqueta }}
+          <input type="number" name="{{ nombre }}" value="{{ valores.get(nombre, '') }}" min="{{ mn }}" max="{{ mx }}" step="{{ paso }}" required>
+          <small>{{ ayuda }}</small>
+        </label>
+        {% endfor %}
+        <label class="casilla">
+          <input type="checkbox" name="feriado" value="1" {% if valores.get('feriado') %}checked{% endif %}>
+          Es feriado
+        </label>
+      </div>
+      <button type="submit">Calcular</button>
+    </form>
+  </section>
+
+  {% if resultado %}
+  <section class="tarjeta resultado nivel-{{ resultado.nivel }}" aria-live="polite">
+    <h2>Resultado</h2>
+
+    <p class="grande">Demanda estimada: <strong>{{ resultado.mw | miles }} MW</strong></p>
+    <p class="ayuda">Umbral de alta demanda: {{ resultado.umbral | miles }} MW
+      ({{ 'por encima' if resultado.dif > 0 else 'por debajo' }} del umbral por {{ resultado.dif | abs | miles }} MW).</p>
+
+    <div class="dos">
+      <div class="alerta {{ 'si' if resultado.alerta_reg else 'no' }}">
+        <h3>Alerta desde la regresión</h3>
+        <p class="estado">{{ 'ALTA DEMANDA' if resultado.alerta_reg else 'Sin alerta' }}</p>
+        <p>Se alerta si la demanda estimada supera {{ resultado.umbral | miles }} MW.</p>
+      </div>
+      <div class="alerta {{ 'si' if resultado.alerta_clf else 'no' }}">
+        <h3>Alerta del clasificador directo</h3>
+        <p class="estado">{{ 'ALTA DEMANDA' if resultado.alerta_clf else 'Sin alerta' }}</p>
+        {% if resultado.proba is not none %}
+        <p>Probabilidad estimada de alta demanda: {{ (resultado.proba * 100) | miles(0) }} %.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <p class="coincidencia"><strong>{{ resultado.coincidencia }}</strong></p>
+    <p>{{ resultado.texto }}</p>
+
+    {% if resultado.cercano %}
+    <p class="aviso">El caso está a {{ resultado.dif | abs | miles }} MW del umbral, dentro del error medio del modelo ({{ resultado.mae | miles }} MW).
+      En esta zona se concentran los errores de alerta: tomá este resultado con cautela.</p>
+    {% endif %}
+    {% if resultado.alerta_prev and not resultado.alerta_reg %}
+    <p class="aviso">Con margen de precaución: la estimación supera {{ (resultado.umbral - resultado.margen) | miles }} MW
+      (umbral menos {{ resultado.margen | miles }} MW). Si un pico no anticipado es muy costoso, conviene considerar esta alerta preventiva.</p>
+    {% endif %}
+    {% for a in resultado.avisos %}<p class="aviso">{{ a }}</p>{% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="tarjeta limitaciones">
+    <h2>Limitaciones: cuándo no usar esta herramienta</h2>
+    <ul>
+      <li>Es un proyecto educativo entrenado con datos horarios del GBA de 2012 a 2016 (validado con 2017 y probado con 2018). No reemplaza al criterio de un operador del sistema eléctrico.</li>
+      <li>En el entrenamiento se usó clima medido. Con pronósticos del tiempo el error puede ser mayor.</li>
+      <li>El error medio en la prueba fue de {{ meta.mae_test_MW | round(0) | int }} MW y los errores de alerta se concentran cerca del umbral.</li>
+      <li>No considera días atípicos que el calendario no marca (puentes, eventos, cortes) ni cambios en la demanda posteriores a 2018.</li>
+      <li>El esquema de costos (un pico no anticipado cuesta {{ meta.costo_fn_sobre_fp | int }} veces una reserva de más) es un supuesto del grupo, no un dato real.</li>
+    </ul>
+    <p class="ayuda">Modelos: {{ meta.regresor }} y {{ meta.clasificador }}. Datos: CAMMESA. TP Integrador de Aprendizaje Automático · Instituto 57.</p>
+  </section>
+</main>
+</body>
+</html>
