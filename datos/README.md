@@ -1,7 +1,7 @@
 # Datos
 
 ## Fuente
-Demanda eléctrica horaria del Gran Buenos Aires: CAMMESA. [completar: origen exacto de las variables climáticas y de EMAE, enlace de descarga y pasos de limpieza que llevaron del dato original a `cammesa_limpio.csv`]
+El conjunto se descargó del portal **Datos Argentina** y contiene demanda eléctrica horaria del Gran Buenos Aires atribuida a CAMMESA. [Completar el enlace de descarga, el origen exacto de las variables climáticas y de EMAE, y los pasos de limpieza que llevaron del archivo descargado a `cammesa_limpio.csv`.]
 
 ## Archivos
 | Archivo | Descripción |
