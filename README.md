@@ -5,6 +5,8 @@ TP Integrador de Aprendizaje Automático · Instituto de Formación Docente y T�
 **Integrantes:** Enzo Mellado, Gladys González y Lucas Pardo  
 **Curso:** 2.º año de Ciencia de Datos e Inteligencia Artificial
 
+El equipo continúa con tres integrantes, con autorización del docente luego de la baja de un integrante.
+
 ## Qué hace el proyecto
 Sobre datos horarios de demanda eléctrica del Gran Buenos Aires (CAMMESA, 2012–2018) se resuelven dos tareas relacionadas:
 
@@ -22,6 +24,11 @@ La alerta se genera de dos maneras, un clasificador directo y la regresión más
 - **Regresión:** MAE de 413 MW en prueba, contra 1.019 MW del `DummyRegressor` y 611 MW de la referencia estacional.
 - **Recomendación:** con un falso negativo 5 veces más costoso que un falso positivo, el clasificador directo es la alerta principal (costo 45 % menor); la regresión informa los MW esperados y sirve de control cruzado.
 - El detalle, las limitaciones y las respuestas a las preguntas del informe están en el notebook (secciones 10 a 13).
+
+## Informe final
+- [Leer el informe web con gráficos y resultados](informe/informe_web.html).
+- [Abrir el informe final en Word](informe/entregas/Informe_final_Demanda_electrica_GBA.docx).
+- [Ver la presentación](informe/entregas/Demanda_electrica_GBA.pptx).
 
 ## Estructura del repositorio
 ```
@@ -42,12 +49,13 @@ La alerta se genera de dos maneras, un clasificador directo y la regresión más
 │   ├── resultados_entrega2.json
 │   └── resultados_entrega3_4.json
 └── informe/
+    ├── informe_web.html         versión web del informe, con gráficos y logos
     ├── entregas/                documentos de cada entrega
     ├── figuras/
-    ├── bitacora.md              decisiones tomadas
-    ├── distribucion_tareas.md
-    ├── informe_final.pdf
-    └── presentacion.pptx
+    │   ├── logo-instituto-57.png
+    │   └── logo-cammesa.png
+    ├── entregas/bitacora.md     decisiones tomadas
+    └── entregas/distribucion_tareas.md
 ```
 
 ## Cómo ejecutar el notebook
