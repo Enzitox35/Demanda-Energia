@@ -9,4 +9,3 @@
 | Aplicación Flask y despliegue (Entrega 5) | [completar] | [completar] | [completar] |
 | Informe y presentación | [completar] | [completar] | [completar] |
 
-Si el grupo es de cuatro integrantes, agregar la columna que falta.
