@@ -1,0 +1,70 @@
+{
+  "umbral_MW": 7307.0,
+  "predictores": [
+    "Temp",
+    "Hum",
+    "Pres",
+    "GHI",
+    "viento_vel",
+    "Holiday",
+    "hora",
+    "dia_semana",
+    "mes",
+    "fin_de_semana"
+  ],
+  "rangos_entrenamiento": {
+    "Temp": [
+      0.4,
+      37.9
+    ],
+    "Hum": [
+      0.15,
+      1.0
+    ],
+    "Pres": [
+      993.8,
+      1037.9
+    ],
+    "GHI": [
+      0.0,
+      1136.0
+    ],
+    "viento_vel": [
+      0.0,
+      39.5339
+    ],
+    "Holiday": [
+      0.0,
+      1.0
+    ],
+    "hora": [
+      0.0,
+      23.0
+    ],
+    "dia_semana": [
+      0.0,
+      6.0
+    ],
+    "mes": [
+      1.0,
+      12.0
+    ],
+    "fin_de_semana": [
+      0.0,
+      1.0
+    ]
+  },
+  "costo_fn_sobre_fp": 5.0,
+  "margen_precaucion_MW": 475.0,
+  "regresor": "DecisionTreeRegressor (prof. 12)",
+  "clasificador": "DecisionTreeClassifier (prof. 8, pesos 1:5)",
+  "mae_test_MW": 412.9274566194184,
+  "semilla": 42,
+  "versiones": {
+    "python": "3.12.3",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  }
+}

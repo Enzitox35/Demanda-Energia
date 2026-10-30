@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Informe del proyecto de regresión y alerta de alta demanda eléctrica del Gran Buenos Aires.">
+  <meta name="description"
+    content="Informe del proyecto de regresión y alerta de alta demanda eléctrica del Gran Buenos Aires.">
   <title>Demanda eléctrica del GBA | Informe final</title>
   <style>
     :root {
@@ -23,116 +25,448 @@
       scroll-behavior: smooth;
     }
 
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--wash); color: var(--ink); line-height: 1.65; }
-    a { color: var(--blue); }
-    a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--wash);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
     .hero {
       background: radial-gradient(ellipse at 85% 0, #236ca1 0, transparent 36%),
-                  linear-gradient(125deg, #0c2343, #164d7e 72%, #127c98);
+        linear-gradient(125deg, #0c2343, #164d7e 72%, #127c98);
       color: white;
       padding: 28px 24px 72px;
     }
-    .hero-inner, main, footer { width: min(1120px, 100% - 40px); margin-inline: auto; }
-    .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .logos { display: flex; align-items: center; gap: 14px; }
+
+    .hero-inner,
+    main,
+    footer {
+      width: min(1120px, 100% - 40px);
+      margin-inline: auto;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
     .logo {
-      display: block; width: auto; max-width: 190px; height: 70px; object-fit: contain;
-      padding: 7px 10px; border-radius: 12px; background: white;
+      display: block;
+      width: auto;
+      max-width: 190px;
+      height: 70px;
+      object-fit: contain;
+      padding: 7px 10px;
+      border-radius: 12px;
+      background: white;
     }
-    .logo.cammesa { max-width: 104px; }
+
+    .logo.cammesa {
+      max-width: 104px;
+    }
+
     .tag {
-      border: 1px solid rgba(255,255,255,.42); border-radius: 999px;
-      padding: 6px 12px; color: #effaff; font-size: .82rem; white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: 999px;
+      padding: 6px 12px;
+      color: #effaff;
+      font-size: .82rem;
+      white-space: nowrap;
     }
-    h1 { max-width: 830px; margin: 48px 0 12px; font-size: clamp(2.3rem, 6vw, 4.25rem); line-height: 1.08; letter-spacing: -.04em; }
-    .subtitle { max-width: 740px; margin: 0; color: #e0effa; font-size: clamp(1.06rem, 2vw, 1.3rem); }
-    .byline { margin-top: 25px; color: #d4e4f2; }
-    .byline strong { color: white; }
-    .hero-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+
+    h1 {
+      max-width: 830px;
+      margin: 48px 0 12px;
+      font-size: clamp(2.3rem, 6vw, 4.25rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .subtitle {
+      max-width: 740px;
+      margin: 0;
+      color: #e0effa;
+      font-size: clamp(1.06rem, 2vw, 1.3rem);
+    }
+
+    .byline {
+      margin-top: 25px;
+      color: #d4e4f2;
+    }
+
+    .byline strong {
+      color: white;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
     .button {
-      display: inline-block; padding: 10px 16px; border-radius: 9px; font-weight: 700;
-      color: var(--navy); background: white; text-decoration: none;
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 9px;
+      font-weight: 700;
+      color: var(--navy);
+      background: white;
+      text-decoration: none;
     }
-    .button.secondary { color: white; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.4); }
+
+    .button.secondary {
+      color: white;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .4);
+    }
+
     nav {
-      position: sticky; top: 0; z-index: 2; overflow-x: auto; background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
     }
+
     nav ul {
-      display: flex; width: min(1120px, 100% - 40px); gap: 24px; margin: 0 auto; padding: 12px 0;
-      list-style: none; white-space: nowrap;
+      display: flex;
+      width: min(1120px, 100% - 40px);
+      gap: 24px;
+      margin: 0 auto;
+      padding: 12px 0;
+      list-style: none;
+      white-space: nowrap;
     }
-    nav a { color: var(--muted); font-size: .9rem; font-weight: 650; text-decoration: none; }
-    main { padding: 34px 0 64px; }
-    section { scroll-margin-top: 60px; margin: 25px 0; padding: clamp(22px, 4vw, 38px); background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
-    h2 { margin: 0 0 10px; color: var(--navy); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
-    h3 { margin: 0 0 9px; color: var(--navy); font-size: 1.12rem; }
-    p { margin: 8px 0 14px; }
-    .lead { max-width: 820px; color: var(--muted); font-size: 1.06rem; }
-    .eyebrow { margin: 0 0 8px; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 22px; }
-    .card { grid-column: span 3; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fbfdff; }
-    .card.wide { grid-column: span 6; }
-    .card.full { grid-column: 1 / -1; }
-    .metric { display: block; color: var(--navy); font-size: 1.8rem; font-weight: 800; letter-spacing: -.035em; line-height: 1.2; }
-    .metric-label { color: var(--muted); font-size: .9rem; }
-    .callout { margin: 22px 0 0; padding: 16px 18px; border-left: 4px solid var(--cyan); border-radius: 8px; background: #effaff; }
-    .callout.warning { border-color: #e0a047; background: #fff8ed; }
-    .callout.success { border-color: #49a78c; background: #eef9f5; }
-    .table-wrap { overflow-x: auto; margin-top: 18px; }
-    table { width: 100%; border-collapse: collapse; font-size: .94rem; }
-    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: var(--navy); background: #f3f7fb; font-size: .84rem; }
-    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-    tr.recommended td { background: #eef9f5; font-weight: 650; }
-    figure { margin: 22px 0 0; }
-    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: white; }
-    figcaption { margin-top: 9px; color: var(--muted); font-size: .9rem; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .list-tight { padding-left: 21px; }
-    .list-tight li { margin: 8px 0; }
-    .pill { display: inline-block; padding: 3px 9px; border-radius: 999px; color: var(--green); background: #e8f6f1; font-size: .78rem; font-weight: 750; }
-    .small { color: var(--muted); font-size: .9rem; }
-    footer { padding: 0 0 36px; color: var(--muted); font-size: .9rem; }
+
+    nav a {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 34px 0 64px;
+    }
+
+    section {
+      scroll-margin-top: 60px;
+      margin: 25px 0;
+      padding: clamp(22px, 4vw, 38px);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 1.12rem;
+    }
+
+    p {
+      margin: 8px 0 14px;
+    }
+
+    .lead {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .card {
+      grid-column: span 3;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfdff;
+    }
+
+    .card.wide {
+      grid-column: span 6;
+    }
+
+    .card.full {
+      grid-column: 1 / -1;
+    }
+
+    .metric {
+      display: block;
+      color: var(--navy);
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .callout {
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      background: #effaff;
+    }
+
+    .callout.warning {
+      border-color: #e0a047;
+      background: #fff8ed;
+    }
+
+    .callout.success {
+      border-color: #49a78c;
+      background: #eef9f5;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .94rem;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--navy);
+      background: #f3f7fb;
+      font-size: .84rem;
+    }
+
+    td.num,
+    th.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    tr.recommended td {
+      background: #eef9f5;
+      font-weight: 650;
+    }
+
+    figure {
+      margin: 22px 0 0;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
+
+    figcaption {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .list-tight {
+      padding-left: 21px;
+    }
+
+    .list-tight li {
+      margin: 8px 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: var(--green);
+      background: #e8f6f1;
+      font-size: .78rem;
+      font-weight: 750;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     @media (max-width: 760px) {
-      .hero-inner, main, footer { width: min(100% - 26px, 1120px); }
-      .hero { padding: 20px 0 48px; }
-      .logo { height: 56px; max-width: 150px; }
-      .logo.cammesa { max-width: 80px; }
-      .tag { font-size: .72rem; }
-      nav ul { width: calc(100% - 26px); }
-      .card, .card.wide { grid-column: span 6; }
-      .two-col { grid-template-columns: 1fr; }
+
+      .hero-inner,
+      main,
+      footer {
+        width: min(100% - 26px, 1120px);
+      }
+
+      .hero {
+        padding: 20px 0 48px;
+      }
+
+      .logo {
+        height: 56px;
+        max-width: 150px;
+      }
+
+      .logo.cammesa {
+        max-width: 80px;
+      }
+
+      .tag {
+        font-size: .72rem;
+      }
+
+      nav ul {
+        width: calc(100% - 26px);
+      }
+
+      .card,
+      .card.wide {
+        grid-column: span 6;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 480px) {
-      .brand-row { align-items: flex-start; flex-direction: column; }
-      .card, .card.wide { grid-column: 1 / -1; }
-      section { padding: 20px 16px; }
+      .brand-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .card,
+      .card.wide {
+        grid-column: 1 / -1;
+      }
+
+      section {
+        padding: 20px 16px;
+      }
     }
+
     @media print {
-      body { background: white; }
-      .hero { padding: 18px; print-color-adjust: exact; }
-      nav, .hero-links { display: none; }
-      main, footer, .hero-inner { width: 100%; }
-      section { break-inside: avoid; box-shadow: none; }
-      figure { break-inside: avoid; }
-      a { color: inherit; }
+      body {
+        background: white;
+      }
+
+      .hero {
+        padding: 18px;
+        print-color-adjust: exact;
+      }
+
+      nav,
+      .hero-links {
+        display: none;
+      }
+
+      main,
+      footer,
+      .hero-inner {
+        width: 100%;
+      }
+
+      section {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      figure {
+        break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="hero">
     <div class="hero-inner">
       <div class="brand-row">
         <div class="logos" aria-label="Institución y fuente">
-          <img class="logo" src="figuras/logo-instituto-57.png" alt="Instituto Superior de Formación Docente y Técnica N.º 57 Juana Paula Manso">
+          <img class="logo" src="figuras/logo-instituto-57.png"
+            alt="Instituto Superior de Formación Docente y Técnica N.º 57 Juana Paula Manso">
           <img class="logo cammesa" src="figuras/logo-cammesa.png" alt="CAMMESA">
         </div>
         <span class="tag">Informe final · Aprendizaje automático</span>
       </div>
       <h1>Demanda eléctrica del Gran Buenos Aires</h1>
-      <p class="subtitle">Regresión para estimar la demanda horaria y clasificación para anticipar posibles picos de consumo.</p>
+      <p class="subtitle">Regresión para estimar la demanda horaria y clasificación para anticipar posibles picos de
+        consumo.</p>
       <p class="byline"><strong>Enzo Mellado · Gladys González · Lucas Pardo</strong><br>
         2.º año de Ciencia de Datos e Inteligencia Artificial · ISFDyT N.º 57 «Juana Paula Manso» · Chascomús</p>
       <div class="hero-links">
@@ -150,6 +484,7 @@
       <li><a href="#regresion">Regresión</a></li>
       <li><a href="#clasificacion">Clasificación</a></li>
       <li><a href="#comparacion">Comparación</a></li>
+      <li><a href="#probar">Probar el modelo</a></li>
       <li><a href="#limitaciones">Limitaciones</a></li>
     </ul>
   </nav>
@@ -158,14 +493,22 @@
     <section id="resumen">
       <p class="eyebrow">01 · Síntesis</p>
       <h2>¿Qué problema se aborda?</h2>
-      <p class="lead">Un analista de despacho o una distribuidora necesita anticipar horas de demanda eléctrica elevada para preparar generación y reserva. El proyecto estima la demanda y genera una alerta de alta demanda de dos formas: mediante un clasificador directo y aplicando un umbral a la salida de la regresión.</p>
+      <p class="lead">Un analista de despacho o una distribuidora necesita anticipar horas de demanda eléctrica elevada
+        para preparar generación y reserva. El proyecto estima la demanda y genera una alerta de alta demanda de dos
+        formas: mediante un clasificador directo y aplicando un umbral a la salida de la regresión.</p>
       <div class="grid">
-        <div class="card"><span class="metric">61.368</span><span class="metric-label">registros horarios · 2012–2018</span></div>
-        <div class="card"><span class="metric">7.307 MW</span><span class="metric-label">umbral: percentil 90 de entrenamiento</span></div>
-        <div class="card"><span class="metric">413 MW</span><span class="metric-label">MAE del mejor regresor en prueba 2018</span></div>
-        <div class="card"><span class="metric">86,7 %</span><span class="metric-label">recall del clasificador directo en prueba</span></div>
+        <div class="card"><span class="metric">61.368</span><span class="metric-label">registros horarios ·
+            2012–2018</span></div>
+        <div class="card"><span class="metric">7.307 MW</span><span class="metric-label">umbral: percentil 90 de
+            entrenamiento</span></div>
+        <div class="card"><span class="metric">413 MW</span><span class="metric-label">MAE del mejor regresor en prueba
+            2018</span></div>
+        <div class="card"><span class="metric">86,7 %</span><span class="metric-label">recall del clasificador directo
+            en prueba</span></div>
       </div>
-      <div class="callout success"><strong>Conclusión:</strong> bajo el supuesto de que un falso negativo cuesta cinco veces más que un falso positivo, se recomienda el clasificador directo como alerta principal. La regresión informa los MW estimados y sirve como control cruzado.</div>
+      <div class="callout success"><strong>Conclusión:</strong> bajo el supuesto de que un falso negativo cuesta cinco
+        veces más que un falso positivo, se recomienda el clasificador directo como alerta principal. La regresión
+        informa los MW estimados y sirve como control cruzado.</div>
       <p class="small">Equipo de tres integrantes, con autorización del docente luego de la baja de un integrante.</p>
     </section>
 
@@ -175,37 +518,70 @@
       <div class="grid">
         <div class="card wide">
           <h3>Fuente y unidad de análisis</h3>
-          <p>Cada fila representa una hora de demanda del Gran Buenos Aires. El conjunto fue obtenido del portal <a href="https://datos.gob.ar/dataset/?organization=secretaria-de-energia">Datos Argentina · Secretaría de Energía</a> y atribuido a CAMMESA.</p>
-          <p class="small">Para una cita reproducible, completar en el informe el enlace directo a la ficha del recurso y detallar si clima y EMAE provienen de esa descarga o de fuentes complementarias.</p>
+          <p>Cada fila representa una hora de demanda del Gran Buenos Aires. El conjunto fue obtenido del portal <a
+              href="https://datos.gob.ar/dataset/?organization=secretaria-de-energia">Datos Argentina · Secretaría de
+              Energía</a> y atribuido a CAMMESA.</p>
+          <p class="small">Para una cita reproducible, completar en el informe el enlace directo a la ficha del recurso
+            y detallar si clima y EMAE provienen de esa descarga o de fuentes complementarias.</p>
         </div>
         <div class="card wide">
           <h3>Objetivos</h3>
           <p><strong>Regresión:</strong> demanda horaria `DemGBA`, en MW.</p>
-          <p><strong>Clasificación:</strong> alta demanda cuando `DemGBA &gt; 7.307 MW`. El umbral se calculó con el percentil 90 del entrenamiento, sin usar validación o prueba.</p>
+          <p><strong>Clasificación:</strong> alta demanda cuando `DemGBA &gt; 7.307 MW`. El umbral se calculó con el
+            percentil 90 del entrenamiento, sin usar validación o prueba.</p>
         </div>
         <div class="card full">
           <h3>Predictores disponibles al momento de predecir</h3>
-          <p>Temperatura, humedad, presión, radiación solar, velocidad del viento, feriado y variables de calendario (hora, día de semana, mes y fin de semana). Se excluyen la demanda, la clase derivada, identificadores temporales, EMAE por su disponibilidad tardía y los componentes redundantes del viento.</p>
-          <p>El uso previsto es una hora futura con el calendario y el pronóstico meteorológico de esa hora. En el entrenamiento se utilizó clima observado, por lo que el desempeño con pronósticos puede ser diferente.</p>
+          <p>Temperatura, humedad, presión, radiación solar, velocidad del viento, feriado y variables de calendario
+            (hora, día de semana, mes y fin de semana). Se excluyen la demanda, la clase derivada, identificadores
+            temporales, EMAE por su disponibilidad tardía y los componentes redundantes del viento.</p>
+          <p>El uso previsto es una hora futura con el calendario y el pronóstico meteorológico de esa hora. En el
+            entrenamiento se utilizó clima observado, por lo que el desempeño con pronósticos puede ser diferente.</p>
         </div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Conjunto</th><th>Período</th><th class="num">Horas</th><th class="num">Horas de alta demanda</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Conjunto</th>
+              <th>Período</th>
+              <th class="num">Horas</th>
+              <th class="num">Horas de alta demanda</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Entrenamiento</td><td>2012–2016</td><td class="num">43.848</td><td class="num">10,0 %</td></tr>
-            <tr><td>Validación</td><td>2017</td><td class="num">8.760</td><td class="num">10,9 %</td></tr>
-            <tr><td>Prueba</td><td>2018</td><td class="num">8.760</td><td class="num">13,9 %</td></tr>
+            <tr>
+              <td>Entrenamiento</td>
+              <td>2012–2016</td>
+              <td class="num">43.848</td>
+              <td class="num">10,0 %</td>
+            </tr>
+            <tr>
+              <td>Validación</td>
+              <td>2017</td>
+              <td class="num">8.760</td>
+              <td class="num">10,9 %</td>
+            </tr>
+            <tr>
+              <td>Prueba</td>
+              <td>2018</td>
+              <td class="num">8.760</td>
+              <td class="num">13,9 %</td>
+            </tr>
           </tbody>
         </table>
       </div>
       <figure>
-        <img src="figuras/fig3_particion_temporal.png" alt="Demanda media mensual separada en entrenamiento 2012 a 2016, validación 2017 y prueba 2018" loading="lazy">
-        <figcaption>La evaluación conserva el orden temporal: el modelo aprende del pasado y se mide en años posteriores.</figcaption>
+        <img src="figuras/fig3_particion_temporal.png"
+          alt="Demanda media mensual separada en entrenamiento 2012 a 2016, validación 2017 y prueba 2018"
+          loading="lazy">
+        <figcaption>La evaluación conserva el orden temporal: el modelo aprende del pasado y se mide en años
+          posteriores.</figcaption>
       </figure>
       <div class="two-col">
         <figure>
-          <img src="figuras/fig1_distribucion.png" alt="Distribución de la demanda horaria y umbral de 7307 MW" loading="lazy">
+          <img src="figuras/fig1_distribucion.png" alt="Distribución de la demanda horaria y umbral de 7307 MW"
+            loading="lazy">
           <figcaption>Distribución de demanda y umbral definido únicamente con entrenamiento.</figcaption>
         </figure>
         <figure>
@@ -213,87 +589,377 @@
           <figcaption>La proporción de horas de alta demanda varía según el mes y la hora.</figcaption>
         </figure>
       </div>
-      <div class="callout warning"><strong>Calidad y cautela metodológica:</strong> el conjunto tiene faltantes climáticos —12 filas asociadas a una falla de sensor y 335 valores de GHI— que se imputaron; hay 61.368 horas consecutivas y no se detectaron duplicados. La interpolación temporal de algunas variables se hizo antes de separar los períodos, por lo que puede apoyarse en observaciones posteriores a la hora faltante. Esto debe tenerse presente al interpretar la evaluación.</div>
+      <div class="callout warning"><strong>Calidad y cautela metodológica:</strong> el conjunto tiene faltantes
+        climáticos —12 filas asociadas a una falla de sensor y 335 valores de GHI— que se imputaron; hay 61.368 horas
+        consecutivas y no se detectaron duplicados. La interpolación temporal de algunas variables se hizo antes de
+        separar los períodos, por lo que puede apoyarse en observaciones posteriores a la hora faltante. Esto debe
+        tenerse presente al interpretar la evaluación.</div>
     </section>
 
     <section id="regresion">
       <p class="eyebrow">03 · Estimación numérica</p>
       <h2>Regresión: ¿cuánta demanda se espera?</h2>
-      <p>Se compararon un DummyRegressor, una referencia estacional, un árbol de regresión y KNN con StandardScaler dentro de un Pipeline. La selección se hizo con validación; la prueba de 2018 se reservó para la evaluación final.</p>
+      <p>Se compararon un DummyRegressor, una referencia estacional, un árbol de regresión y KNN con StandardScaler
+        dentro de un Pipeline. La selección se hizo con validación; la prueba de 2018 se reservó para la evaluación
+        final.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Modelo</th><th class="num">MAE valid.</th><th class="num">MAE prueba</th><th class="num">RMSE prueba</th><th class="num">R² prueba</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th class="num">MAE valid.</th>
+              <th class="num">MAE prueba</th>
+              <th class="num">RMSE prueba</th>
+              <th class="num">R² prueba</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>DummyRegressor (media)</td><td class="num">931 MW</td><td class="num">1.019 MW</td><td class="num">1.270 MW</td><td class="num">−0,001</td></tr>
-            <tr><td>Referencia estacional</td><td class="num">492 MW</td><td class="num">611 MW</td><td class="num">757 MW</td><td class="num">0,644</td></tr>
-            <tr class="recommended"><td>DecisionTreeRegressor · profundidad 12</td><td class="num">330 MW</td><td class="num">413 MW</td><td class="num">530 MW</td><td class="num">0,825</td></tr>
-            <tr><td>KNeighborsRegressor · k = 15, escalado</td><td class="num">341 MW</td><td class="num">413 MW</td><td class="num">514 MW</td><td class="num">0,836</td></tr>
+            <tr>
+              <td>DummyRegressor (media)</td>
+              <td class="num">931 MW</td>
+              <td class="num">1.019 MW</td>
+              <td class="num">1.270 MW</td>
+              <td class="num">−0,001</td>
+            </tr>
+            <tr>
+              <td>Referencia estacional</td>
+              <td class="num">492 MW</td>
+              <td class="num">611 MW</td>
+              <td class="num">757 MW</td>
+              <td class="num">0,644</td>
+            </tr>
+            <tr class="recommended">
+              <td>DecisionTreeRegressor · profundidad 12</td>
+              <td class="num">330 MW</td>
+              <td class="num">413 MW</td>
+              <td class="num">530 MW</td>
+              <td class="num">0,825</td>
+            </tr>
+            <tr>
+              <td>KNeighborsRegressor · k = 15, escalado</td>
+              <td class="num">341 MW</td>
+              <td class="num">413 MW</td>
+              <td class="num">514 MW</td>
+              <td class="num">0,836</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <p><strong>Interpretación del MAE:</strong> en la prueba, la predicción se aparta de la demanda real unos 413 MW en promedio. El árbol reduce el MAE aproximadamente un 59 % frente al DummyRegressor y un 32 % frente a la referencia estacional.</p>
+      <p><strong>Interpretación del MAE:</strong> en la prueba, la predicción se aparta de la demanda real unos 413 MW
+        en promedio. El árbol reduce el MAE aproximadamente un 59 % frente al DummyRegressor y un 32 % frente a la
+        referencia estacional.</p>
       <figure>
-        <img src="figuras/fig4_curvas_hiperparametros.png" alt="Curvas de MAE de entrenamiento y validación al variar profundidad del árbol y k de KNN" loading="lazy">
-        <figcaption>La validación orienta la profundidad y la cantidad de vecinos; la divergencia del árbol más profundo evidencia sobreajuste.</figcaption>
+        <img src="figuras/fig4_curvas_hiperparametros.png"
+          alt="Curvas de MAE de entrenamiento y validación al variar profundidad del árbol y k de KNN" loading="lazy">
+        <figcaption>La validación orienta la profundidad y la cantidad de vecinos; la divergencia del árbol más profundo
+          evidencia sobreajuste.</figcaption>
       </figure>
       <figure>
-        <img src="figuras/fig5_residuos.png" alt="Distribución de residuos, residuos según predicción y MAE por hora" loading="lazy">
-        <figcaption>En los picos el árbol tiende a subestimar la demanda; el error también varía según la hora.</figcaption>
+        <img src="figuras/fig5_residuos.png" alt="Distribución de residuos, residuos según predicción y MAE por hora"
+          loading="lazy">
+        <figcaption>En los picos el árbol tiende a subestimar la demanda; el error también varía según la hora.
+        </figcaption>
       </figure>
     </section>
 
     <section id="clasificacion">
       <p class="eyebrow">04 · Alertas</p>
       <h2>Clasificación: ¿se superará el umbral?</h2>
-      <p>Se compararon DummyClassifier, DecisionTreeClassifier, KNeighborsClassifier con escalado y GaussianNB. Por el desbalance de clases, la accuracy no basta: el Dummy de clase mayoritaria logra 86,1 % de accuracy en prueba, pero no detecta ningún pico.</p>
+      <p>Se compararon DummyClassifier, DecisionTreeClassifier, KNeighborsClassifier con escalado y GaussianNB. Por el
+        desbalance de clases, la accuracy no basta: el Dummy de clase mayoritaria logra 86,1 % de accuracy en prueba,
+        pero no detecta ningún pico.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Modelo (prueba 2018)</th><th class="num">Accuracy</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1</th><th class="num">FP</th><th class="num">FN</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Modelo (prueba 2018)</th>
+              <th class="num">Accuracy</th>
+              <th class="num">Precision</th>
+              <th class="num">Recall</th>
+              <th class="num">F1</th>
+              <th class="num">FP</th>
+              <th class="num">FN</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Dummy · clase mayoritaria</td><td class="num">0,861</td><td class="num">0,000</td><td class="num">0,000</td><td class="num">0,000</td><td class="num">0</td><td class="num">1.222</td></tr>
-            <tr><td>Referencia estacional + umbral</td><td class="num">0,890</td><td class="num">0,917</td><td class="num">0,235</td><td class="num">0,374</td><td class="num">26</td><td class="num">935</td></tr>
-            <tr class="recommended"><td>Árbol · profundidad 8, pesos 1:5</td><td class="num">0,922</td><td class="num">0,672</td><td class="num">0,867</td><td class="num">0,757</td><td class="num">517</td><td class="num">162</td></tr>
-            <tr><td>KNN · k = 15, escalado</td><td class="num">0,923</td><td class="num">0,827</td><td class="num">0,570</td><td class="num">0,675</td><td class="num">146</td><td class="num">525</td></tr>
-            <tr><td>GaussianNB</td><td class="num">0,870</td><td class="num">0,527</td><td class="num">0,642</td><td class="num">0,579</td><td class="num">705</td><td class="num">437</td></tr>
+            <tr>
+              <td>Dummy · clase mayoritaria</td>
+              <td class="num">0,861</td>
+              <td class="num">0,000</td>
+              <td class="num">0,000</td>
+              <td class="num">0,000</td>
+              <td class="num">0</td>
+              <td class="num">1.222</td>
+            </tr>
+            <tr>
+              <td>Referencia estacional + umbral</td>
+              <td class="num">0,890</td>
+              <td class="num">0,917</td>
+              <td class="num">0,235</td>
+              <td class="num">0,374</td>
+              <td class="num">26</td>
+              <td class="num">935</td>
+            </tr>
+            <tr class="recommended">
+              <td>Árbol · profundidad 8, pesos 1:5</td>
+              <td class="num">0,922</td>
+              <td class="num">0,672</td>
+              <td class="num">0,867</td>
+              <td class="num">0,757</td>
+              <td class="num">517</td>
+              <td class="num">162</td>
+            </tr>
+            <tr>
+              <td>KNN · k = 15, escalado</td>
+              <td class="num">0,923</td>
+              <td class="num">0,827</td>
+              <td class="num">0,570</td>
+              <td class="num">0,675</td>
+              <td class="num">146</td>
+              <td class="num">525</td>
+            </tr>
+            <tr>
+              <td>GaussianNB</td>
+              <td class="num">0,870</td>
+              <td class="num">0,527</td>
+              <td class="num">0,642</td>
+              <td class="num">0,579</td>
+              <td class="num">705</td>
+              <td class="num">437</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <p class="small">FP = falsa alerta; FN = pico real no detectado. Se seleccionó el árbol con pesos de clase por costo en validación, no por accuracy.</p>
+      <p class="small">FP = falsa alerta; FN = pico real no detectado. Se seleccionó el árbol con pesos de clase por
+        costo en validación, no por accuracy.</p>
       <figure>
-        <img src="figuras/fig7_matrices_confusion.png" alt="Matrices de confusión del clasificador directo y de regresión más umbral en la prueba 2018" loading="lazy">
-        <figcaption>Las matrices muestran la diferencia operativa: el clasificador directo detecta más picos, a costa de más falsas alarmas.</figcaption>
+        <img src="figuras/fig7_matrices_confusion.png"
+          alt="Matrices de confusión del clasificador directo y de regresión más umbral en la prueba 2018"
+          loading="lazy">
+        <figcaption>Las matrices muestran la diferencia operativa: el clasificador directo detecta más picos, a costa de
+          más falsas alarmas.</figcaption>
       </figure>
     </section>
 
     <section id="comparacion">
       <p class="eyebrow">05 · Decisión integrada</p>
       <h2>Comparación de los dos sistemas</h2>
-      <p>Ambos sistemas se evaluaron en las mismas 8.760 horas de 2018. El costo es una unidad relativa definida por el grupo: costo(FP) = 1 y costo(FN) = 5; no representa dinero real.</p>
+      <p>Ambos sistemas se evaluaron en las mismas 8.760 horas de 2018. El costo es una unidad relativa definida por el
+        grupo: costo(FP) = 1 y costo(FN) = 5; no representa dinero real.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Sistema</th><th class="num">Accuracy</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1</th><th class="num">FP</th><th class="num">FN</th><th class="num">Costo</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Sistema</th>
+              <th class="num">Accuracy</th>
+              <th class="num">Precision</th>
+              <th class="num">Recall</th>
+              <th class="num">F1</th>
+              <th class="num">FP</th>
+              <th class="num">FN</th>
+              <th class="num">Costo</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr class="recommended"><td>Clasificador directo</td><td class="num">0,922</td><td class="num">0,672</td><td class="num">0,867</td><td class="num">0,757</td><td class="num">517</td><td class="num">162</td><td class="num">1.327</td></tr>
-            <tr><td>Regresión + umbral fijo</td><td class="num">0,929</td><td class="num">0,812</td><td class="num">0,635</td><td class="num">0,713</td><td class="num">180</td><td class="num">446</td><td class="num">2.410</td></tr>
-            <tr><td>Regresión + umbral − 475 MW (variante)</td><td class="num">0,921</td><td class="num">0,656</td><td class="num">0,908</td><td class="num">0,762</td><td class="num">582</td><td class="num">112</td><td class="num">1.142</td></tr>
-            <tr><td>Clasificador directo · corte 0,35 (variante)</td><td class="num">0,920</td><td class="num">0,660</td><td class="num">0,885</td><td class="num">0,756</td><td class="num">557</td><td class="num">140</td><td class="num">1.257</td></tr>
+            <tr class="recommended">
+              <td>Clasificador directo</td>
+              <td class="num">0,922</td>
+              <td class="num">0,672</td>
+              <td class="num">0,867</td>
+              <td class="num">0,757</td>
+              <td class="num">517</td>
+              <td class="num">162</td>
+              <td class="num">1.327</td>
+            </tr>
+            <tr>
+              <td>Regresión + umbral fijo</td>
+              <td class="num">0,929</td>
+              <td class="num">0,812</td>
+              <td class="num">0,635</td>
+              <td class="num">0,713</td>
+              <td class="num">180</td>
+              <td class="num">446</td>
+              <td class="num">2.410</td>
+            </tr>
+            <tr>
+              <td>Regresión + umbral − 475 MW (variante)</td>
+              <td class="num">0,921</td>
+              <td class="num">0,656</td>
+              <td class="num">0,908</td>
+              <td class="num">0,762</td>
+              <td class="num">582</td>
+              <td class="num">112</td>
+              <td class="num">1.142</td>
+            </tr>
+            <tr>
+              <td>Clasificador directo · corte 0,35 (variante)</td>
+              <td class="num">0,920</td>
+              <td class="num">0,660</td>
+              <td class="num">0,885</td>
+              <td class="num">0,756</td>
+              <td class="num">557</td>
+              <td class="num">140</td>
+              <td class="num">1.257</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <p><strong>Lectura:</strong> con el umbral fijo, la regresión deja sin detectar 446 de los 1.222 picos; el clasificador directo omite 162. Bajo el costo supuesto 1:5, el clasificador directo cuesta un 45 % menos que la regresión con umbral fijo. Una variante con margen de precaución reduce aún más el costo en esta prueba, pero debe validarse con más períodos.</p>
+      <p><strong>Lectura:</strong> con el umbral fijo, la regresión deja sin detectar 446 de los 1.222 picos; el
+        clasificador directo omite 162. Bajo el costo supuesto 1:5, el clasificador directo cuesta un 45 % menos que la
+        regresión con umbral fijo. Una variante con margen de precaución reduce aún más el costo en esta prueba, pero
+        debe validarse con más períodos.</p>
       <figure>
-        <img src="figuras/fig8_sensibilidad_costos.png" alt="Costo de los sistemas al variar cuánto más cuesta un falso negativo frente a un falso positivo" loading="lazy">
-        <figcaption>El orden cambia según cuánto se penalice no detectar un pico; la relación de costos debe justificarse para cada uso real.</figcaption>
+        <img src="figuras/fig8_sensibilidad_costos.png"
+          alt="Costo de los sistemas al variar cuánto más cuesta un falso negativo frente a un falso positivo"
+          loading="lazy">
+        <figcaption>El orden cambia según cuánto se penalice no detectar un pico; la relación de costos debe
+          justificarse para cada uso real.</figcaption>
       </figure>
       <figure>
-        <img src="figuras/fig9_real_vs_predicho.png" alt="Demanda real frente a demanda predicha y regiones de falsos positivos y negativos" loading="lazy">
-        <figcaption>Real contra predicho en 2018: cerca de la línea de decisión, un error numérico puede cambiar la alerta.</figcaption>
+        <img src="figuras/fig9_real_vs_predicho.png"
+          alt="Demanda real frente a demanda predicha y regiones de falsos positivos y negativos" loading="lazy">
+        <figcaption>Real contra predicho en 2018: cerca de la línea de decisión, un error numérico puede cambiar la
+          alerta.</figcaption>
       </figure>
-      <div class="callout warning"><strong>Cercanía al umbral:</strong> a menos de 300 MW del límite, la tasa de error fue aproximadamente 41 % para el clasificador y 44 % para la regresión con umbral. A más de 800 MW, bajó a 2,3 % y 0,9 %, respectivamente.</div>
+      <div class="callout warning"><strong>Cercanía al umbral:</strong> a menos de 300 MW del límite, la tasa de error
+        fue aproximadamente 41 % para el clasificador y 44 % para la regresión con umbral. A más de 800 MW, bajó a 2,3 %
+        y 0,9 %, respectivamente.</div>
     </section>
 
+    <section id="probar">
+      <p class="eyebrow">06 · Demostración interactiva</p>
+      <h2>Probá el modelo con tus datos</h2>
+      <p class="lead">Ingresá una fecha, una hora y las condiciones meteorológicas pronosticadas. Se estima la demanda
+        con la regresión y se evalúa la alerta con ambos sistemas, usando los Pipelines guardados en
+        <code>modelos/</code>.</p>
+
+      <form id="form-pred" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="fecha">Fecha</label>
+            <input id="fecha" name="fecha" type="date" min="2019-01-01" max="2035-12-31" value="2026-01-15" required>
+            <span class="err" data-err="fecha"></span>
+          </div>
+          <div class="field"><label for="hora">Hora del día (0–23)</label>
+            <input id="hora" name="hora" type="number" min="0" max="23" step="1" value="17" required>
+            <span class="err" data-err="hora"></span>
+          </div>
+          <div class="field"><label for="temp">Temperatura pronosticada (°C)</label>
+            <input id="temp" name="temp" type="number" min="-10" max="50" step="0.1" value="33" required>
+            <span class="hint">Entrenamiento: 0,4 a 37,9 °C</span><span class="err" data-err="temp"></span>
+          </div>
+          <div class="field"><label for="hum">Humedad relativa (%)</label>
+            <input id="hum" name="hum" type="number" min="0" max="100" step="1" value="45" required>
+            <span class="hint">Entrenamiento: 15 a 100 %</span><span class="err" data-err="hum"></span>
+          </div>
+          <div class="field"><label for="pres">Presión atmosférica (hPa)</label>
+            <input id="pres" name="pres" type="number" min="900" max="1100" step="0.1" value="1008" required>
+            <span class="hint">Entrenamiento: 994 a 1.038 hPa</span><span class="err" data-err="pres"></span>
+          </div>
+          <div class="field"><label for="ghi">Radiación solar GHI</label>
+            <input id="ghi" name="ghi" type="number" min="0" max="1400" step="1" value="700" required>
+            <span class="hint">De noche es 0. Entrenamiento: 0 a 1.136</span><span class="err" data-err="ghi"></span>
+          </div>
+          <div class="field"><label for="viento">Intensidad del viento</label>
+            <input id="viento" name="viento" type="number" min="0" max="100" step="0.1" value="10" required>
+            <span class="hint">Misma unidad que el dataset. Entrenamiento: 0 a 39,5</span><span class="err"
+              data-err="viento"></span>
+          </div>
+          <div class="field check"><input id="feriado" name="feriado" type="checkbox"><label for="feriado">Es
+              feriado</label></div>
+        </div>
+        <button class="button" type="submit">Analizar</button>
+      </form>
+
+      <div id="resultado" aria-live="polite"></div>
+      <p class="small">Prototipo educativo entrenado con datos 2012–2018. No es una herramienta operativa de CAMMESA.
+      </p>
+    </section>
+
+    <script>
+      (function () {
+        const form = document.getElementById("form-pred");
+        const out = document.getElementById("resultado");
+        const nf = new Intl.NumberFormat("es-AR", { useGrouping: "always", maximumFractionDigits: 0 });
+        const signo = n => (n > 0 ? "+" : "") + nf.format(n);
+
+        function limpiarErrores() {
+          form.querySelectorAll("[data-err]").forEach(s => (s.textContent = ""));
+        }
+
+        function mostrarErrores(errores) {
+          Object.entries(errores).forEach(([campo, msg]) => {
+            const s = form.querySelector(`[data-err="${campo}"]`);
+            if (s) s.textContent = msg;
+          });
+          out.textContent = "Revisá los campos marcados.";
+        }
+
+        function item(lista, texto) {
+          const li = document.createElement("li");
+          li.textContent = texto;
+          lista.appendChild(li);
+        }
+
+        function mostrar(r) {
+          out.replaceChildren();
+          const box = document.createElement("div");
+          box.className = "callout res-" + r.nivel;
+
+          const t = document.createElement("strong");
+          t.textContent = r.coincidencia;
+          box.appendChild(t);
+
+          const p = document.createElement("p");
+          p.textContent = r.texto;
+          box.appendChild(p);
+
+          const ul = document.createElement("ul");
+          ul.className = "list-tight";
+          item(ul, `Demanda estimada (regresión): ${nf.format(r.mw)} MW`);
+          item(ul, `Umbral de alta demanda: ${nf.format(r.umbral)} MW (diferencia: ${signo(r.dif)} MW)`);
+          item(ul, `Regresión + umbral fijo: ${r.alerta_reg ? "ALERTA" : "sin alerta"}`);
+          item(ul, `Clasificador directo: ${r.alerta_clf ? "ALERTA" : "sin alerta"}` +
+            (r.proba !== null ? ` (probabilidad de alta demanda: ${(r.proba * 100).toFixed(1).replace(".", ",")} %)` : ""));
+          item(ul, `Variante con margen de precaución (umbral − ${nf.format(r.margen)} MW): ${r.alerta_prev ? "ALERTA" : "sin alerta"}`);
+          item(ul, r.cercano
+            ? `Estimación a menos de ${nf.format(r.mae)} MW (el MAE) del umbral: resultado poco confiable.`
+            : "Estimación alejada del umbral: resultado más confiable.");
+          box.appendChild(ul);
+
+          (r.avisos || []).forEach(a => {
+            const w = document.createElement("p");
+            w.className = "small";
+            w.textContent = "⚠ " + a;
+            box.appendChild(w);
+          });
+          out.appendChild(box);
+        }
+
+        form.addEventListener("submit", async e => {
+          e.preventDefault();
+          limpiarErrores();
+          const d = Object.fromEntries(new FormData(form));
+          d.feriado = form.feriado.checked;
+          out.textContent = "Calculando…";
+          try {
+            const resp = await fetch("/api/predecir", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(d)
+            });
+            const data = await resp.json();
+            if (resp.status === 400 && data.errores) return mostrarErrores(data.errores);
+            if (!resp.ok) throw new Error("error del servidor");
+            mostrar(data);
+          } catch (err) {
+            out.textContent = "No se pudo calcular: " + err.message;
+          }
+        });
+      })();
+    </script>
+
     <section id="limitaciones">
-      <p class="eyebrow">06 · Alcance y reproducibilidad</p>
+      <p class="eyebrow">07 · Alcance y reproducibilidad</p>
       <h2>Limitaciones y cuándo no usar la solución</h2>
       <div class="two-col">
         <div>
@@ -302,8 +968,10 @@
             <li>Los datos terminan en 2018; cambiaron la demanda y el contexto energético.</li>
             <li>Se entrenó con clima medido, no con pronósticos meteorológicos.</li>
             <li>Los costos relativos 1:5 son un supuesto del grupo, no costos operativos observados.</li>
-            <li>La imputación por interpolación previa a la partición puede usar información posterior a horas faltantes.</li>
-            <li>Los resultados de prueba corresponden a un solo año y las variantes de umbral necesitan más validación.</li>
+            <li>La imputación por interpolación previa a la partición puede usar información posterior a horas
+              faltantes.</li>
+            <li>Los resultados de prueba corresponden a un solo año y las variantes de umbral necesitan más validación.
+            </li>
           </ul>
         </div>
         <div>
@@ -313,7 +981,8 @@
             <li>Pronósticos meteorológicos de baja calidad o eventos excepcionales que el modelo no representa.</li>
             <li>Decisiones de seguridad del suministro sin revisión de personal responsable.</li>
           </ul>
-          <p class="callout">Es un prototipo educativo para comparar modelos, no una herramienta operativa de CAMMESA.</p>
+          <p class="callout">Es un prototipo educativo para comparar modelos, no una herramienta operativa de CAMMESA.
+          </p>
         </div>
       </div>
       <h3>Archivos del proyecto</h3>
@@ -321,11 +990,14 @@
         <li><a href="../datos/README.md">Fuente, preparación y diccionario de datos</a>.</li>
         <li><a href="../notebooks/entrenamiento.ipynb">Notebook de entrenamiento y evaluación</a>.</li>
         <li><a href="../modelos/metadatos.json">Metadatos de los modelos guardados</a>.</li>
-        <li><a href="entregas/bitacora.md">Bitácora de decisiones</a> y <a href="entregas/distribucion_tareas.md">distribución de tareas</a>.</li>
-        <li><a href="entregas/Informe_final_Demanda_electrica_GBA.docx">Informe final en Word</a> y <a href="entregas/Demanda_electrica_GBA.pptx">presentación</a>.</li>
+        <li><a href="entregas/bitacora.md">Bitácora de decisiones</a> y <a
+            href="entregas/distribucion_tareas.md">distribución de tareas</a>.</li>
+        <li><a href="entregas/Informe_final_Demanda_electrica_GBA.docx">Informe final en Word</a> y <a
+            href="entregas/Demanda_electrica_GBA.pptx">presentación</a>.</li>
       </ul>
-      <p class="small"><span class="pill">Reproducibilidad</span> Python 3.12 · NumPy 2.4.4 · pandas 3.0.2 · scikit-learn 1.8.0 · joblib 1.5.3 · semilla 42.</p>
-      <p class="small">La aplicación Flask se encuentra en el repositorio; el despliegue en Vercel y su URL pública todavía deben verificarse antes de completar esos datos.</p>
+      <p class="small"><span class="pill">Reproducibilidad</span> Python 3.12 · NumPy 2.4.4 · pandas 3.0.2 ·
+        scikit-learn 1.8.0 · joblib 1.5.3 · semilla 42.</p>
+      <p class="small">La aplicación Flask se encuentra en el repositorio.</p>
     </section>
   </main>
   <footer>
@@ -333,4 +1005,5 @@
     <p><a href="../README.md">Volver al README del proyecto</a></p>
   </footer>
 </body>
+
 </html>

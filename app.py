@@ -10,7 +10,7 @@ from datetime import datetime
 
 import joblib
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, render_template, request
 
 import features  # noqa: F401  (los Pipelines guardados referencian features.agregar_derivadas)
 from features import BASE
@@ -154,6 +154,17 @@ def predecir_ruta():
     resultado = predecir(entrada) if not errores else None
     return render_template('index.html', campos=CAMPOS, valores=valores, errores=errores, resultado=resultado,
                            meta=META, fecha_min=FECHA_MIN, fecha_max=FECHA_MAX), (400 if errores else 200)
+
+
+@app.route('/api/predecir', methods=['POST'])
+def api_predecir():
+    datos = request.get_json(silent=True) or {}
+    valores = {k: ('' if v is None else str(v)) for k, v in datos.items() if k != 'feriado'}
+    valores['feriado'] = '1' if datos.get('feriado') is True else ''
+    entrada, errores = validar(valores)
+    if errores:
+        return jsonify(errores=errores), 400
+    return jsonify(predecir(entrada))
 
 
 @app.route('/salud')
